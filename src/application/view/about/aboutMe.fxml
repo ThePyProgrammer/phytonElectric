@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.about.AboutMeController">
+    <children>
+        <SplitPane fx:id="split" dividerPositions="0.3879598662207358" layoutX="-3.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="204.0" style="-fx-background-color: white;">
+                    <children>
+                        <ImageView fx:id="imageView" fitHeight="273.0" fitWidth="184.0" layoutX="30.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image fx:id="image" url="@../../../resources/images/Me.jpg" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="398.0" prefWidth="390.0">
+                    <children>
+                        <Label fx:id="label1" layoutX="23.0" layoutY="7.0" prefHeight="74.0" prefWidth="245.0" text="Hi.">
+                            <font>
+                                <Font name="Calibri Light" size="36.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label2" layoutX="26.0" layoutY="81.0" prefHeight="25.0" prefWidth="239.0" text="My name is Prannaya Gupta," textAlignment="CENTER" textOverrun="CLIP">
+                            <font>
+                                <Font name="Calibri Light" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label3" layoutX="80.0" layoutY="106.0" text="and I am student in NUS High School.">
+                            <font>
+                                <Font name="Calibri Light" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label4" layoutX="42.0" layoutY="199.0" text="I enjoy coding.">
+                            <font>
+                                <Font name="Calibri Light" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label5" layoutX="14.0" layoutY="248.0" text="I hope you truly do enjoy it...">
+                            <font>
+                                <Font name="Calibri Light" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label6" layoutX="47.0" layoutY="277.0" text="...as much as I do.">
+                            <font>
+                                <Font name="Calibri Light" size="36.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

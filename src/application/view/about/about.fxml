@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.about.AboutController">
+    <children>
+        <SplitPane fx:id="split" dividerPositions="0.3879598662207358" layoutX="-3.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="204.0" style="-fx-background-color: white;">
+                    <children>
+                        <ImageView fx:id="imageView" fitHeight="193.0" fitWidth="199.0" layoutX="15.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image fx:id="image" url="@../../../resources/images/icons/phyton.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="398.0" prefWidth="390.0">
+                    <children>
+                        <Label fx:id="label1" layoutX="23.0" layoutY="7.0" prefHeight="74.0" prefWidth="322.0" text="Phyton was made for one reason. To help." wrapText="true">
+                            <font>
+                                <Font name="Calibri Light" size="18.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="label2" layoutX="20.0" layoutY="81.0" prefHeight="74.0" prefWidth="322.0" text="Physics is difficult. Calculation is even harder. But that doesn't mean we can't help." wrapText="true">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label3" layoutX="20.0" layoutY="162.0" prefHeight="74.0" prefWidth="322.0" text="With phyton, I try to integrate simulations that can help." wrapText="true">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label4" layoutX="20.0" layoutY="227.0" prefHeight="102.0" prefWidth="322.0" text="This app was made during Covid-19, and strives to allow hands-on learning of electricity without having to go to the lab." wrapText="true">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="23.0" layoutY="329.0" onAction="#generateAboutMe" text="About The Programmer">
+                     <font>
+                        <Font name="Calibri Light" size="16.0" />
+                     </font></Hyperlink>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
