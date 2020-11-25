@@ -37,6 +37,6 @@ public class Force extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" N";
+        return getValue() + " N";
     }
 }

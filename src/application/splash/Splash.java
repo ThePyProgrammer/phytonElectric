@@ -1,35 +1,30 @@
 package application.splash;
 
+import application.Main;
 import javafx.animation.*;
-import javafx.collections.*;
-import javafx.geometry.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.*;
-import javafx.scene.layout.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
-import java.io.*;
+import java.io.FileNotFoundException;
 
 public class Splash {
     static Scene splash;
     static Rectangle rect = new Rectangle();
-    private Pane pane, splashLayout;
-    private ProgressBar loadProgress;
-    private Label progressText, label;
-    ImageView iv, iv2, iv3;
-    final String IMAGE_URL2 = "src/resources/images/lightning.gif", IMAGE_URL = "src/resources/images/lightning2.gif",
-            IMAGE_URL3 = "src/resources/images/lightning4.gif";
-    final private SequentialTransition seqT = new SequentialTransition(), progress = new SequentialTransition(),
-            fillerT = new SequentialTransition();
-    int scale = 30, dur = 800;
-    Thread proganim, shapeanim, filleranim;
-
-    private ObservableList<String> texts = FXCollections.observableArrayList("Implementing MVC Framework...",
+    private static ObservableList<String> texts = FXCollections.observableArrayList("Implementing MVC Framework...",
             "Creating 100+ Files...", "Reading Java API...", "Importing *...", "Generating classes...",
             "Generating interfaces...", "Generating enumerations...", "Extending classes...",
             "Implementing interfaces...", "Setting preferences...", "Initializing Current Flow...",
@@ -47,6 +42,14 @@ public class Splash {
             "Threading everything together...", "Forming simulator...", "Reading everything...", "Ignoring magnetism...",
             "Excusing Quantum Physics for this session...", "Trying to understand PO...", "Failing to understand PO...",
             "Ignoring PO...", "Preparing Environment...", "Finally loading phyton.workspace...", "Completed.");
+    final String IMAGE_URL = Main.class.getResource("resources/images/splash/lightning.gif").toExternalForm();
+    final private SequentialTransition seqT = new SequentialTransition(), progress = new SequentialTransition(),
+            fillerT = new SequentialTransition();
+    ImageView iv;
+    int scale = 30, dur = 800;
+    private Pane pane, splashLayout;
+    private ProgressBar loadProgress;
+    private Label progressText, label;
 
     public Splash() {
         splash = new Scene((pane = new Pane()));
@@ -54,7 +57,7 @@ public class Splash {
     }
 
     public void init() throws FileNotFoundException {
-        rect = new Rectangle(100-2*scale, 20, scale, scale);
+        rect = new Rectangle(100 - 2 * scale, 20, scale, scale);
         rect.setFill(Color.BLACK);
 
         label = new Label("phyton");
@@ -63,24 +66,11 @@ public class Splash {
         label.setLayoutX(140);
         label.setLayoutY(70);
 
-        iv = new ImageView(new Image(new FileInputStream(IMAGE_URL2)));
+        iv = new ImageView(new Image(IMAGE_URL));
         iv.setFitWidth(400);
         iv.setFitHeight(300);
         iv.setX(300);
         iv.setY(0);
-
-        iv2 = new ImageView(new Image(new FileInputStream(IMAGE_URL)));
-        iv2.setFitWidth(500);
-        iv2.setFitHeight(240);
-        iv2.setX(100);
-        iv2.setY(240);
-
-        iv3 = new ImageView(new Image(new FileInputStream(IMAGE_URL3)));
-        iv3.setFitWidth(400);
-        iv3.setFitHeight(240);
-        iv3.setX(0);
-        iv3.setY(240);
-        iv3.setVisible(false);
 
         loadProgress = new ProgressBar();
         loadProgress.setPrefWidth(800);
@@ -100,17 +90,6 @@ public class Splash {
     public void show() throws FileNotFoundException {
         init();
 
-        FillTransition ft = new FillTransition(Duration.millis(2000), rect, Color.BLACK, Color.AQUAMARINE);
-        //Thread filler = new Thread(() -> ft.play());
-        //filler.start();
-        //while(filler.isAlive()) {}
-        (filleranim = new Thread(filler)).start();
-        (shapeanim = new Thread(shapeMover)).start();
-        (proganim = new Thread(progresser)).start();
-
-    }
-
-    private Runnable filler = () -> {
         fillerT.getChildren().addAll(
                 new FillTransition(Duration.millis(2000), rect, Color.BLACK, Color.CORNFLOWERBLUE),
                 new FillTransition(Duration.millis(2000), rect, Color.CORNFLOWERBLUE, Color.DEEPSKYBLUE),
@@ -118,32 +97,20 @@ public class Splash {
                 new FillTransition(Duration.millis(2000), rect, Color.MIDNIGHTBLUE, Color.BLACK)
         );
         fillerT.play();
-    };
 
-    private Runnable progresser = () -> {
         progress.getChildren().add(new Transition() {
-            { setCycleDuration(Duration.millis(8000)); }
+            {
+                setCycleDuration(Duration.millis(8000));
+            }
+
             @Override
             protected void interpolate(double frac) {
                 loadProgress.setProgress(frac);
-                progressText.setText(texts.get((int)(frac*(texts.size()-1))));
-                if((int)(frac*4) == 1 && !iv3.isVisible()) {
-                    iv3.setVisible(true);
-                    iv3.opacityProperty().set(0);
-                    Timeline timeline = new Timeline();
-                    KeyFrame key = new KeyFrame(Duration.millis(1000),
-                            new KeyValue(iv3.opacityProperty(), 1));
-                    timeline.getKeyFrames().add(key);
-                    Thread t = new Thread(() -> timeline.play());
-                    t.start();
-                    // iv3.setVisible(true);
-                }
+                progressText.setText(texts.get((int) (frac * (texts.size() - 1))));
             }
         });
         progress.play();
-    };
 
-    private Runnable shapeMover = () -> {
         int[] rotins = {scale, 2 * scale, 3 * scale, 4 * scale, 5 * scale, -6 * scale, -5 * scale, -4 * scale, -3 * scale, -2 * scale};
         int x, y;
         for (int i : rotins) {
@@ -162,25 +129,13 @@ public class Splash {
         }
         seqT.setNode(rect);
         seqT.play();
-    };
-
-    public Scene getSplashScene() { return splash; }
-
-    public SequentialTransition getSequentialTransition() { return seqT; }
-
-    public SequentialTransition getProgresser() { return progress; }
-
-    public Thread getProganim() {
-        return proganim;
     }
 
-    public Thread getShapeanim() {
-        return shapeanim;
+    public Scene getSplashScene() {
+        return splash;
     }
 
-    public void stopAllThreads() {
-        proganim.interrupt();
-        shapeanim.interrupt();
-        filleranim.interrupt();
+    public SequentialTransition getProgresser() {
+        return progress;
     }
 }

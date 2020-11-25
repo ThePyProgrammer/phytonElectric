@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import application.model.fxcircuitry.CircuitPane?>
+<?import application.model.util.fxtools.AngleChooser?>
+<?import application.model.util.fxtools.ZoomableScrollPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="parent" alignment="CENTER" minHeight="326.0" minWidth="719.0"
+      prefHeight="555.0"
+      prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1"
+      fx:controller="application.controller.TabController" stylesheets="@stylesheets/tab.css">
+
+    <SplitPane fx:id="split" dividerPositions="0.2006, 0.8006" focusTraversable="true"
+               maxHeight="1.7976931348623157E308" minWidth="0.0" prefHeight="516.0" prefWidth="900.0"
+               VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="190.0" minWidth="190.0" prefHeight="520.0"
+                    prefWidth="190.0">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" fx:id="widgets"
+                   text="Widgets" textAlignment="CENTER" styleClass="header"/>
+            <Accordion layoutX="-1.0" layoutY="45.0" prefHeight="200.0" prefWidth="191.0"
+                       AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0"
+                       AnchorPane.topAnchor="45.0">
+                <panes>
+                    <TitledPane animated="false" prefHeight="147.0" prefWidth="223.0" text="Power Sources"
+                                fx:id="powerSources">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="222.0">
+                            <Label fx:id="cellLabel" onDragDetected="#cellDragDetected"
+                                   onMouseClicked="#addCell" onMouseReleased="#drop" prefHeight="23.0"
+                                   prefWidth="190.0" styleClass="widgetLabel"
+                                   text="Cell (〢)">
+
+                                <padding>
+                                    <Insets left="10.0"/>
+                                </padding>
+                            </Label>
+                        </AnchorPane>
+                    </TitledPane>
+                    <TitledPane animated="false" prefHeight="424.0" prefWidth="187.0" text="Components"
+                                fx:id="components">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Label fx:id="resistorLabel" layoutX="1.0" layoutY="1.0"
+                                   onDragDetected="#resistorDragDetected" onMouseClicked="#addResistor"
+                                   onMouseReleased="#drop" prefHeight="23.0" prefWidth="188.0"
+                                   styleClass="widgetLabel" text="Resistor (⏛)">
+                                <padding>
+                                    <Insets left="10.0"/>
+                                </padding>
+                            </Label>
+                            <Label fx:id="bulbLabel" layoutX="1.0" layoutY="25.0"
+                                   onDragDetected="#bulbDragDetected" onMouseClicked="#addBulb"
+                                   onMouseReleased="#drop" prefHeight="23.0" prefWidth="188.0"
+                                   styleClass="widgetLabel" text="Bulb (⊗)">
+                                <padding>
+                                    <Insets left="10.0"/>
+                                </padding>
+                            </Label>
+                        </AnchorPane>
+                    </TitledPane>
+                </panes>
+            </Accordion>
+        </AnchorPane>
+        <ZoomableScrollPane fx:id="scroller" pannable="true" prefHeight="463.0" prefWidth="444.0">
+            <target>
+                <CircuitPane id="content" fx:id="canvas" maxHeight="1.7976931348623157E308"
+                             maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+                             onMouseEntered="#cursorEnter" onMouseExited="#cursorExit" onMouseMoved="#cursorMove"
+                             prefHeight="150000.0" prefWidth="150000.0" stylesheets="@stylesheets/widgets.css"/>
+            </target>
+        </ZoomableScrollPane>
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="166.0" minWidth="166.0" prefHeight="530.0"
+                    prefWidth="166.0">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="Details"
+                   textAlignment="CENTER" styleClass="header" fx:id="detailsLabel"/>
+            <GridPane fx:id="details" disable="true" layoutX="2.0" layoutY="40.0" prefHeight="202.0"
+                      prefWidth="155.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <Label text="Property" GridPane.halignment="CENTER" GridPane.valignment="CENTER"
+                       styleClass="tableHeader" fx:id="property"/>
+                <Label text="Value" GridPane.columnIndex="1" GridPane.halignment="CENTER" styleClass="tableHeader"
+                       fx:id="value"/>
+                <Label fx:id="emfLabel" alignment="CENTER" text="emf" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="1" GridPane.valignment="CENTER" styleClass="table"/>
+                <Label fx:id="ReffLabel" alignment="CENTER" text="Effective R" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="3" GridPane.valignment="CENTER" styleClass="table"/>
+                <Label fx:id="IeffLabel" alignment="CENTER" text="Effective I" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="4" GridPane.valignment="CENTER" styleClass="table"/>
+                <Label fx:id="PLabel" alignment="CENTER" text="Power" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="5" GridPane.valignment="CENTER" styleClass="table"/>
+                <TextField fx:id="emf" prefHeight="26.0" prefWidth="100.0" GridPane.columnIndex="1"
+                           GridPane.rowIndex="1" styleClass="table"/>
+                <TextField fx:id="reff" editable="false" prefHeight="26.0" prefWidth="100.0"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="table"/>
+                <TextField fx:id="Ieff" editable="false" prefHeight="26.0" prefWidth="100.0"
+                           GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="table"/>
+                <TextField fx:id="power" editable="false" prefHeight="26.0" prefWidth="100.0"
+                           GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="table"/>
+                <Label fx:id="rLabel" text="Resistance"
+                       GridPane.halignment="CENTER" GridPane.rowIndex="2" styleClass="table"/>
+                <TextField fx:id="resistance" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="table"/>
+            </GridPane>
+            <AngleChooser fx:id="angler" layoutX="4.0" layoutY="250.0" prefHeight="155.0" prefWidth="155.0"/>
+        </AnchorPane>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" maxHeight="22.4" maxWidth="1.7976931348623157E308" minHeight="22.4"
+          prefHeight="22.4" spacing="5.0" styleClass="statusbar" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+        </padding>
+        <Label fx:id="cursorCoords" prefHeight="16.0" prefWidth="403.0" textFill="#9f9f9f" styleClass="below">
+            <HBox.margin>
+                <Insets left="10.0"/>
+            </HBox.margin>
+        </Label>
+        <Label fx:id="component" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="16.0"
+               prefWidth="472.0" text="phyton.workspace" textAlignment="RIGHT" HBox.hgrow="ALWAYS" styleClass="below">
+            <padding>
+                <Insets right="10.0"/>
+            </padding>
+        </Label>
+    </HBox>
+</VBox>

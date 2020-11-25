@@ -17,6 +17,6 @@ public class Area extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" m^2";
+        return getValue() + " m^2";
     }
 }

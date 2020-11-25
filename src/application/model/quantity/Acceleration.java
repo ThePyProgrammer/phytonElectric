@@ -25,6 +25,6 @@ public class Acceleration extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" m/s^2";
+        return getValue() + " m/s^2";
     }
 }

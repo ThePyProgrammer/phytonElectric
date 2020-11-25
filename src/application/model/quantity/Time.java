@@ -37,6 +37,6 @@ public class Time extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" s";
+        return getValue() + " s";
     }
 }

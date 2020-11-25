@@ -1,13 +1,17 @@
 package application.model.circuitry;
 
-import application.model.quantity.*;
+import application.model.quantity.Current;
+import application.model.quantity.Power;
+import application.model.quantity.Resistance;
 
-public class Parallel extends Component {
+public class Parallel extends Series {
     ParallelArray arr;
 
-    public Parallel(Series ...series) {
-        super(new ParallelArray(series).getPD(), new ParallelArray(series).effectiveI());
-        arr = new ParallelArray(series);
+    public Parallel(ParallelNode node, Series... series) {
+        arr = new ParallelArray(node, series);
+        setResistance(arr.effectiveR());
+        setCurrent(arr.effectiveI());
+        setVoltage(arr.getPD());
     }
 
     public void add(int index, Series s) {

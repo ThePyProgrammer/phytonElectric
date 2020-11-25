@@ -5,13 +5,12 @@ module phyton {
     requires javafx.web;
     requires javafx.swing;
     requires java.desktop;
-    requires java.logging;
-    requires jdk.jsobject;
-    requires gtranslateapi;
+    requires org.apache.commons.io;
     opens application;
     opens application.controller;
     opens application.controller.about;
     opens application.model.fxcircuitry;
     exports application.model.fxcircuitry;
+    opens application.model.util.fxtools;
     opens application.view;
 }

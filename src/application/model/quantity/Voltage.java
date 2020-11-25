@@ -1,5 +1,8 @@
 package application.model.quantity;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Voltage extends UnitValue implements Cloneable {
     public static final String unit = "kgm^2/As^3";
 
@@ -15,17 +18,29 @@ public class Voltage extends UnitValue implements Cloneable {
         this(W.div(Q).getValue());
     }
 
-    public Voltage(Energy E, Charge Q) { this(E.div(Q).getValue()); }
+    public Voltage(Energy E, Charge Q) {
+        this(E.div(Q).getValue());
+    }
 
-    public Voltage(Power P, Current I) { this(P.div(I).getValue()); }
+    public Voltage(Power P, Current I) {
+        this(P.div(I).getValue());
+    }
 
-    public Voltage(Current I, Resistance R) { this(I.mul(R).getValue()); }
+    public Voltage(Current I, Resistance R) {
+        this(I.mul(R).getValue());
+    }
 
-    public Voltage(Resistance R, Current I) { this(I.mul(R).getValue()); }
+    public Voltage(Resistance R, Current I) {
+        this(I.mul(R).getValue());
+    }
 
-    public Voltage(Resistance R, Power P) { this(R.mul(P).pow(0.5).getValue()); }
+    public Voltage(Resistance R, Power P) {
+        this(R.mul(P).pow(0.5).getValue());
+    }
 
-    public Voltage(Power P, Resistance R) { this(R.mul(P).pow(0.5).getValue()); }
+    public Voltage(Power P, Resistance R) {
+        this(R.mul(P).pow(0.5).getValue());
+    }
 
     public Voltage clone() {
         return new Voltage(this);
@@ -33,6 +48,10 @@ public class Voltage extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue() + " V";
+        return removeRandomZeroes(String.format("%.3f", getValue())) + " V";
+    }
+
+    public String toString(Locale locale) {
+        return removeRandomZeroes(NumberFormat.getNumberInstance().format(Double.parseDouble(String.format("%.3f", getValue())))) + " V";
     }
 }

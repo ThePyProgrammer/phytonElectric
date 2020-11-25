@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<meta charset="UTF-8">
+<h3>$component</h3>
+<p>
+    Your $component is <span id="$status">NOT </span>working.<br/>
+    It has a current of <b>$current</b> flowing through it.<br/>
+    <span id="$isBulb">$bulbInfo<br/></span>
+    <span id="$component">$resistanceInfo<br/></span>
+    <span id="$isCell">$cellInfo<br/></span>
+    The $component is $functionOfVoltage <b>$voltage</b>.
+</p>
+<script type="text/javascript">
+    arr = ["functioning", "notBulb", "notCell", "Cell"];
+    arr.forEach(function (element) {
+        if (document.getElementById(element) != null)
+            document.getElementById(element).textContent = "";
+    })
+</script>
+</body>
+</html>

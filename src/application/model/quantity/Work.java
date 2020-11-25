@@ -25,6 +25,6 @@ public class Work extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" J";
+        return getValue() + " J";
     }
 }

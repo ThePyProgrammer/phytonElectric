@@ -11,13 +11,21 @@ public class Velocity extends UnitValue implements Cloneable {
         this(v.getValue());
     }
 
-    public Velocity(Distance d, Time t) { this(d.div(t).getValue()); }
+    public Velocity(Distance d, Time t) {
+        this(d.div(t).getValue());
+    }
 
-    public Velocity(Acceleration a, Time t) { this(a.mul(t).getValue()); }
+    public Velocity(Acceleration a, Time t) {
+        this(a.mul(t).getValue());
+    }
 
-    public Velocity(Time t, Acceleration a) { this(a.mul(t).getValue()); }
+    public Velocity(Time t, Acceleration a) {
+        this(a.mul(t).getValue());
+    }
 
-    public Velocity(Power P, Force F) { this(P.div(F).getValue()); }
+    public Velocity(Power P, Force F) {
+        this(P.div(F).getValue());
+    }
 
     public Velocity clone() {
         return new Velocity(this);
@@ -25,6 +33,6 @@ public class Velocity extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" m/s";
+        return getValue() + " m/s";
     }
 }

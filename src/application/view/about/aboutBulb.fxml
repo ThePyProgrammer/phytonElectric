@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import application.model.fxcircuitry.CircuitPane?>
+<?import application.model.util.fxtools.ZoomableScrollPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="682.0" prefWidth="846.0"
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="application.controller.about.AboutBulbController"
+            stylesheets="@../stylesheets/about.css">
+    <SplitPane fx:id="split" dividerPositions="0.5" layoutX="-3.0" prefHeight="400.0" prefWidth="600.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0"
+               AnchorPane.topAnchor="0.0">
+        <ZoomableScrollPane id="parent" fx:id="scroller" maxWidth="440.0" minHeight="0.0" minWidth="0.0"
+                            prefHeight="546.0" prefWidth="440.0" pannable="true">
+            <CircuitPane id="content" fx:id="canvas" maxHeight="1.7976931348623157E308"
+                         maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+                         prefHeight="150000.0" prefWidth="150000.0" stylesheets="@../stylesheets/widgets.css"/>
+        </ZoomableScrollPane>
+        <AnchorPane prefHeight="546.0" prefWidth="472.0">
+            <VBox layoutX="12.0" prefHeight="546.0" prefWidth="502.0" spacing="20.0" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                <Label fx:id="label1" prefHeight="62.0" prefWidth="86.0" text="Bulb" wrapText="true" styleClass="title">
+                    <VBox.margin>
+                        <Insets top="20.0"/>
+                    </VBox.margin>
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="label2" prefHeight="108.0" prefWidth="391.0" styleClass="candara18"
+                       text="A bulb is initiated with 1 ohm of resistance. While this is not generally the normal resistance of a bulb, a bulb is known to have varying resistances. Thus, it was simplified to 1 ohm."
+                       wrapText="true"/>
+                <Label fx:id="label3" prefHeight="81.0" prefWidth="370.0" styleClass="candara18"
+                       text="The bulb can be connected in series with a cell to generate a current, GIVEN that the circuit is closed."
+                       wrapText="true"/>
+                <Label fx:id="label4" prefHeight="216.0" prefWidth="378.0" styleClass="candara18"
+                       text="You can change the resistance by simply going to the side panel and editing the R property. You can either represent it in the form &quot;n Ω&quot;, where n is the number of ohms you want to set the bulb with, or with &quot;n kgm^2/s^3A^2&quot;, which is the SI unit form of ohms. You can also simply enter &quot;n&quot; and the press enter and this will register it as &quot;n Ω&quot;."
+                       wrapText="true"/>
+            </VBox>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>
+

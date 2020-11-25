@@ -15,9 +15,13 @@ public class Energy extends UnitValue implements Cloneable {
         this(P.mul(t).getValue());
     }
 
-    public Energy(Voltage V, Charge Q) { this(V.mul(Q).getValue()); }
+    public Energy(Voltage V, Charge Q) {
+        this(V.mul(Q).getValue());
+    }
 
-    public Energy(Charge Q, Voltage V) { this(V.mul(Q).getValue()); }
+    public Energy(Charge Q, Voltage V) {
+        this(V.mul(Q).getValue());
+    }
 
     public Energy(Force F, Distance d) {
         this(F.mul(d).getValue());
@@ -29,6 +33,6 @@ public class Energy extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" J";
+        return getValue() + " J";
     }
 }

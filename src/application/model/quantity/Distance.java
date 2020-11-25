@@ -25,6 +25,6 @@ public class Distance extends UnitValue implements Cloneable {
 
     @Override
     public String toString() {
-        return getValue()+" m";
+        return getValue() + " m";
     }
 }
