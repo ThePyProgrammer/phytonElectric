@@ -4,7 +4,7 @@
 <img src="https://raw.githubusercontent.com/ThePyProgrammer/phytonUI/master/src/resources/images/icons/phyton.png" align="center" />
 </center>
 
-Made by: Prannaya Gupta (M20307, Class of 2023)
+Created by Prannaya Gupta (M20307, Class of 2023)
 
 Phyton is a Direct Current (DC) Circuit Simulator made to provide a hands-on learning opportunity to students, especially during a period like the current (as of written) Covid-19 situation, where students cannot visit laboratories to indulge in practical sessions using electrical circuits. A main problem that students face without any practical session is the inability to visualize complex circuit diagrams realistically, and this is where phyton comes in. Phyton eases this issue by forming the circuit entirely using circuit symbols. These symbols allow students to comparatively understand how these circuits can be formed.
 
