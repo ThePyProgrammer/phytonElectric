@@ -161,7 +161,7 @@ If I had more time, I could have implemented parallel circuitry, and followed by
 The task, as I previously mentioned was very helpful for me, but I believe the main critique was the limitation of time. Nevertheless, I liked the fact that we could choose our own projects and am thankful to the CS teachers for doing this.
 
 
-**Made as Part of the NUS High School CS3233 Module.**
+**Made as part of the NUS High School CS3233 Module.**
 
 
 ![The NUS High School Logo](https://upload.wikimedia.org/wikipedia/en/thumb/8/85/NUSHS_Logo.png/220px-NUSHS_Logo.png "NUS High School")
