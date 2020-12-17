@@ -65,7 +65,7 @@ This leaves 3 batteries of 1.5 V each, compounding to a total of 4.5 V. There is
 With this program, I implement a simplistic XML-based file system known as Electric XML, or EXML for short. This allows files to be saved in a tag-based layout.
 
 For example, the simplified diagram above can be redrawn as the following:
-```
+```xml
 <Series current="0.136A" effectiveR="33?" isClosed="true">
   <Cell P="0.614W" emf="4.5V" x="989.5703125" y="-715.2890625" angle="360.0" prev="c1" />
   <Resistor R="33Ω" I="0.136A" x="988.4263392854773" y="-829.5781249999854" angle="360.0" prev="c1" />
