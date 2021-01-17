@@ -1,8 +1,8 @@
 # phyton: A physics simulator
 *Simplifying a ton of physics, one step at a time*
-<center>
-<img src="https://raw.githubusercontent.com/ThePyProgrammer/phytonUI/master/src/resources/images/icons/phyton.png" align="center" />
-</center>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ThePyProgrammer/phytonUI/master/src/resources/images/icons/phyton.png" align="center" />
+</p>
 
 Created by Prannaya Gupta (M20307, Class of 2023)
 
